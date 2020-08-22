@@ -29,7 +29,7 @@
         <!-- 轮播图 -->
         <swiper :options="swiperOptions">
           <swiper-slide v-for="(item,index) in slideList" :key="index">
-            <a :href="'/#/product/' + item.productId" target="_blank">
+            <a :href="'/#/product/' + item.productId">
               <img v-lazy="item.img" />
             </a>
           </swiper-slide>
@@ -217,7 +217,7 @@ export default {
       position: absolute;
       width: 264px;
       height: 451px;
-      z-index: 99;
+      z-index: 9;
       padding: 20px 0;
       background-color: #55585a7a; //背景颜色调透明一点
       box-sizing: border-box;
@@ -247,7 +247,7 @@ export default {
           }
           .children {
             display: none;
-            width: 962px;
+            // width: 962px;
             height: 451px;
             background-color: #ffffff;
             position: absolute;
