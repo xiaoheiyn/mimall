@@ -166,7 +166,7 @@ export default {
         color: #ffffff;
         margin-right: 0;
         .icon-cart {
-          @include bgImg(16px,12px,'/imgs/icon-cart-checked.png')
+          @include bgImg(16px,12px,'/imgs/icon-cart-checked.png');
           margin-right: 4px;
         }
       }
@@ -295,7 +295,7 @@ export default {
              padding-left: 14px;
            }
            a{
-             @include bgImg(18px,18px,'/imgs/icon-search.png')
+             @include bgImg(18px,18px,'/imgs/icon-search.png');
              margin-left: 17px;
            }
          }
