@@ -54,7 +54,7 @@
           <div class="total fr">
             合计：
             <span>{{amount}}</span>元
-            <a href="javascript:;" class="btn">去结算</a>
+            <a href="javascript:;" class="btn" @click="order">去结算</a>
           </div>
         </div>
       </div>
@@ -148,6 +148,13 @@ export default {
       }
       let data = await this.axios.put(`cart/${item.id}`, { quantity,selected })
       this.renderg(data)
+    },
+    //结算跳转
+    order(){
+      if(this.isChecked==-1){
+        this.$message.error('至少选择一件商品')
+      }
+      this.$router.push('/order/confirm')
     }
   },
 };

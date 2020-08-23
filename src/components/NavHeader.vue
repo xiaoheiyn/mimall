@@ -12,6 +12,7 @@
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{ username }}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
+          <a href="javascript:;" v-if="username" @click="loginout">退出</a>
           <a href="javascript:;" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart">
             <span class="icon-cart"></span>购物车({{cartCnt}})
@@ -137,6 +138,14 @@ export default {
     // 跳转购物车
     goToCart(){
       this.$router.push('/cart')
+    },
+    //退出
+      async loginout(){
+      await this.axios.post('logout')
+      //退出需将vuex存储的数据更改不然还是会显示,当然标识cookies也得清除
+      this.$cookies.set("mi-session-id","",{expires:'-1'});//-1即可过期
+      this.$store.dispatch('saveUserName','')
+      this.$store.dispatch('saveCartCnt',0)
     }
   }
 }
