@@ -47,7 +47,7 @@ axios.interceptors.response.use(function (response) {
       window.location.href = '/#/login';
     }
   } else {
-    alert(meta.msg);
+    this.$message.error(meta.msg);
     return new Promise(() => {});
   }
 })
